@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <script src="node_modules/d3-timelines/dist/d3-timelines.js"></script>
+
+  <style type="text/css">
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: sans-serif;
+      font-size: 10px;
+    }
+
+    .timeline-label {
+      font-family: sans-serif;
+      font-size: 12px;
+    }
+
+    .coloredDiv {
+      height:20px; width:20px; float:left;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      var aEGFR32BCData = [
+{label: "aEGFR32-1SC01", times: [{"info": "01.csv: aEGFR32-1SC01; Pool 1; Q2", "color":"#1f77b4", "label":"01", "starting_time": 1523471819000, "ending_time": 1523472004000},]},
+{label: "aEGFR32-1SC02", times: [{"info": "02.csv: aEGFR32-1SC02; Pool 1; Q2", "color":"#1f77b4", "label":"02", "starting_time": 1523472030000, "ending_time": 1523472196000},]},
+{label: "aEGFR32-1SC03", times: [{"info": "03.csv: aEGFR32-1SC03; Pool 2; Q2", "color":"#1f77b4", "label":"03", "starting_time": 1523472406000, "ending_time": 1523472580000},]},
+{label: "aEGFR32-1SC04", times: [{"info": "04.csv: aEGFR32-1SC04; Pool 2; Q2", "color":"#1f77b4", "label":"04", "starting_time": 1523472618000, "ending_time": 1523472789000},]},
+{label: "aEGFR32-1SC05", times: [{"info": "05.csv: aEGFR32-1SC05; Pool 1; Q2", "color":"#1f77b4", "label":"05", "starting_time": 1523473122000, "ending_time": 1523473344000},]},
+{label: "aEGFR32-1SC06", times: [{"info": "06.csv: aEGFR32-1SC06; Pool 1; Q2", "color":"#1f77b4", "label":"06", "starting_time": 1523473360000, "ending_time": 1523473554000},]},
+{label: "aEGFR32-1SC07", times: [{"info": "07.csv: aEGFR32-1SC07; Pool 2; Q2", "color":"#1f77b4", "label":"07", "starting_time": 1523473997000, "ending_time": 1523474167000},]},
+{label: "aEGFR32-1SC08", times: [{"info": "08.csv: aEGFR32-1SC08; Pool 2; Q2", "color":"#1f77b4", "label":"08", "starting_time": 1523474210000, "ending_time": 1523474385000},]},
+{label: "aEGFR32-1SC09", times: [{"info": "09.csv: aEGFR32-1SC09; Pool 1; Q2", "color":"#1f77b4", "label":"09", "starting_time": 1523474639000, "ending_time": 1523474844000},]},
+{label: "aEGFR32-1SC10", times: [{"info": "10.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#1f77b4", "label":"10", "starting_time": 1523474913000, "ending_time": 1523475099000},{"info": "15.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#1f77b4", "label":"15", "starting_time": 1523476626000, "ending_time": 1523476831000},]},
+{label: "aEGFR32-1SC11", times: [{"info": "11.csv: aEGFR32-1SC11; Pool 1; Q4", "color":"#ff7f0e", "label":"11", "starting_time": 1523475456000, "ending_time": 1523475581000},]},
+{label: "aEGFR32-1SC12", times: [{"info": "12.csv: aEGFR32-1SC12; Pool 1; Q4", "color":"#ff7f0e", "label":"12", "starting_time": 1523475619000, "ending_time": 1523475744000},]},
+{label: "aEGFR32-1SC13", times: [{"info": "13.csv: aEGFR32-1SC13; Pool 2; Q4", "color":"#ff7f0e", "label":"13", "starting_time": 1523475939000, "ending_time": 1523476063000},]},
+{label: "aEGFR32-1SC14", times: [{"info": "14.csv: aEGFR32-1SC14; Pool 2; Q4", "color":"#ff7f0e", "label":"14", "starting_time": 1523476123000, "ending_time": 1523476244000},]},
+{label: "aEGFR32-1SC16", times: [{"info": "16.csv: aEGFR32-1SC16; Pool 1; Q2", "color":"#1f77b4", "label":"16", "starting_time": 1523476851000, "ending_time": 1523477023000},]},
+{label: "aEGFR32-1SC17", times: [{"info": "17.csv: aEGFR32-1SC17; Pool 2; Q2", "color":"#1f77b4", "label":"17", "starting_time": 1523477249000, "ending_time": 1523477456000},]},
+{label: "aEGFR32-1SC18", times: [{"info": "18.csv: aEGFR32-1SC18; Pool 2; Q2", "color":"#1f77b4", "label":"18", "starting_time": 1523477460000, "ending_time": 1523477636000},]},
+{label: "aEGFR32-1SC19", times: [{"info": "19.csv: aEGFR32-1SC19; Pool 2; Q2", "color":"#1f77b4", "label":"19", "starting_time": 1523477674000, "ending_time": 1523477849000},]},
+{label: "aEGFR32-1SC20", times: [{"info": "20.csv: aEGFR32-1SC20; Pool 1; Q2", "color":"#1f77b4", "label":"20", "starting_time": 1523477988000, "ending_time": 1523478211000},]}]
+
+
+      var aEGFR32TubeData = [
+{label: "Pool 1", times: [
+{"info": "01.csv: aEGFR32-1SC01; Pool 1; Q2", "color":"#1f77b4", "label":"01", "starting_time": 1523471819000, "ending_time": 1523472004000},
+{"info": "02.csv: aEGFR32-1SC02; Pool 1; Q2", "color":"#1f77b4", "label":"02", "starting_time": 1523472030000, "ending_time": 1523472196000},
+{"info": "05.csv: aEGFR32-1SC05; Pool 1; Q2", "color":"#1f77b4", "label":"05", "starting_time": 1523473122000, "ending_time": 1523473344000},
+{"info": "06.csv: aEGFR32-1SC06; Pool 1; Q2", "color":"#1f77b4", "label":"06", "starting_time": 1523473360000, "ending_time": 1523473554000},
+{"info": "09.csv: aEGFR32-1SC09; Pool 1; Q2", "color":"#1f77b4", "label":"09", "starting_time": 1523474639000, "ending_time": 1523474844000},
+{"info": "10.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#1f77b4", "label":"10", "starting_time": 1523474913000, "ending_time": 1523475099000},
+{"info": "11.csv: aEGFR32-1SC11; Pool 1; Q4", "color":"#ff7f0e", "label":"11", "starting_time": 1523475456000, "ending_time": 1523475581000},
+{"info": "12.csv: aEGFR32-1SC12; Pool 1; Q4", "color":"#ff7f0e", "label":"12", "starting_time": 1523475619000, "ending_time": 1523475744000},
+{"info": "15.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#1f77b4", "label":"15", "starting_time": 1523476626000, "ending_time": 1523476831000},
+{"info": "16.csv: aEGFR32-1SC16; Pool 1; Q2", "color":"#1f77b4", "label":"16", "starting_time": 1523476851000, "ending_time": 1523477023000},
+{"info": "20.csv: aEGFR32-1SC20; Pool 1; Q2", "color":"#1f77b4", "label":"20", "starting_time": 1523477988000, "ending_time": 1523478211000},
+]},
+{label: "Pool 2", times: [
+{"info": "03.csv: aEGFR32-1SC03; Pool 2; Q2", "color":"#1f77b4", "label":"03", "starting_time": 1523472406000, "ending_time": 1523472580000},
+{"info": "04.csv: aEGFR32-1SC04; Pool 2; Q2", "color":"#1f77b4", "label":"04", "starting_time": 1523472618000, "ending_time": 1523472789000},
+{"info": "07.csv: aEGFR32-1SC07; Pool 2; Q2", "color":"#1f77b4", "label":"07", "starting_time": 1523473997000, "ending_time": 1523474167000},
+{"info": "08.csv: aEGFR32-1SC08; Pool 2; Q2", "color":"#1f77b4", "label":"08", "starting_time": 1523474210000, "ending_time": 1523474385000},
+{"info": "13.csv: aEGFR32-1SC13; Pool 2; Q4", "color":"#ff7f0e", "label":"13", "starting_time": 1523475939000, "ending_time": 1523476063000},
+{"info": "14.csv: aEGFR32-1SC14; Pool 2; Q4", "color":"#ff7f0e", "label":"14", "starting_time": 1523476123000, "ending_time": 1523476244000},
+{"info": "17.csv: aEGFR32-1SC17; Pool 2; Q2", "color":"#1f77b4", "label":"17", "starting_time": 1523477249000, "ending_time": 1523477456000},
+{"info": "18.csv: aEGFR32-1SC18; Pool 2; Q2", "color":"#1f77b4", "label":"18", "starting_time": 1523477460000, "ending_time": 1523477636000},
+{"info": "19.csv: aEGFR32-1SC19; Pool 2; Q2", "color":"#1f77b4", "label":"19", "starting_time": 1523477674000, "ending_time": 1523477849000},
+]}
+]
+
+      var aEGFR32QuadData = [
+{label: "Q2", times: [
+{"info": "01.csv: aEGFR32-1SC01; Pool 1; Q2", "color":"#17becf", "label":"01", "starting_time": 1523471819000, "ending_time": 1523472004000},
+{"info": "02.csv: aEGFR32-1SC02; Pool 1; Q2", "color":"#17becf", "label":"02", "starting_time": 1523472030000, "ending_time": 1523472196000},
+{"info": "03.csv: aEGFR32-1SC03; Pool 2; Q2", "color":"#bcbd22", "label":"03", "starting_time": 1523472406000, "ending_time": 1523472580000},
+{"info": "04.csv: aEGFR32-1SC04; Pool 2; Q2", "color":"#bcbd22", "label":"04", "starting_time": 1523472618000, "ending_time": 1523472789000},
+{"info": "05.csv: aEGFR32-1SC05; Pool 1; Q2", "color":"#17becf", "label":"05", "starting_time": 1523473122000, "ending_time": 1523473344000},
+{"info": "06.csv: aEGFR32-1SC06; Pool 1; Q2", "color":"#17becf", "label":"06", "starting_time": 1523473360000, "ending_time": 1523473554000},
+{"info": "07.csv: aEGFR32-1SC07; Pool 2; Q2", "color":"#bcbd22", "label":"07", "starting_time": 1523473997000, "ending_time": 1523474167000},
+{"info": "08.csv: aEGFR32-1SC08; Pool 2; Q2", "color":"#bcbd22", "label":"08", "starting_time": 1523474210000, "ending_time": 1523474385000},
+{"info": "09.csv: aEGFR32-1SC09; Pool 1; Q2", "color":"#17becf", "label":"09", "starting_time": 1523474639000, "ending_time": 1523474844000},
+{"info": "10.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#17becf", "label":"10", "starting_time": 1523474913000, "ending_time": 1523475099000},
+{"info": "15.csv: aEGFR32-1SC10; Pool 1; Q2", "color":"#17becf", "label":"15", "starting_time": 1523476626000, "ending_time": 1523476831000},
+{"info": "16.csv: aEGFR32-1SC16; Pool 1; Q2", "color":"#17becf", "label":"16", "starting_time": 1523476851000, "ending_time": 1523477023000},
+{"info": "17.csv: aEGFR32-1SC17; Pool 2; Q2", "color":"#bcbd22", "label":"17", "starting_time": 1523477249000, "ending_time": 1523477456000},
+{"info": "18.csv: aEGFR32-1SC18; Pool 2; Q2", "color":"#bcbd22", "label":"18", "starting_time": 1523477460000, "ending_time": 1523477636000},
+{"info": "19.csv: aEGFR32-1SC19; Pool 2; Q2", "color":"#bcbd22", "label":"19", "starting_time": 1523477674000, "ending_time": 1523477849000},
+{"info": "20.csv: aEGFR32-1SC20; Pool 1; Q2", "color":"#17becf", "label":"20", "starting_time": 1523477988000, "ending_time": 1523478211000},
+]},
+{label: "Q4", times: [
+{"info": "11.csv: aEGFR32-1SC11; Pool 1; Q4", "color":"#17becf", "label":"11", "starting_time": 1523475456000, "ending_time": 1523475581000},
+{"info": "12.csv: aEGFR32-1SC12; Pool 1; Q4", "color":"#17becf", "label":"12", "starting_time": 1523475619000, "ending_time": 1523475744000},
+{"info": "13.csv: aEGFR32-1SC13; Pool 2; Q4", "color":"#bcbd22", "label":"13", "starting_time": 1523475939000, "ending_time": 1523476063000},
+{"info": "14.csv: aEGFR32-1SC14; Pool 2; Q4", "color":"#bcbd22", "label":"14", "starting_time": 1523476123000, "ending_time": 1523476244000},
+]}
+]
+
+      function timelineaEGFR32BC() {
+        let chart = d3.timelines()
+          .tickFormat({format: d3.timeFormat("%I:%M %p"),
+            tickSize: 10})
+          .stack() // toggles graph stacking
+          .margin({left:120, right:30, top:0, bottom:0})
+          .mouseover(function (d, i, datum) {
+          // d is the current rendering object
+          // i is the index during d3 rendering
+          // datum is the id object
+            var div = $('#hoverBc');
+            div.find('#infoBc').text(datum.times[i].info);
+//          })
+//          .mouseout(function (d, i, datum) {
+//            var div = $('#hoverBc');
+//            div.find('#infoBc').text(" ");
+          });
+          ;
+        let svg = d3.select("#aegfr32bc").append("svg").attr("height",600)
+          .attr("width",1000).datum(aEGFR32BCData).call(chart);
+      }
+
+      function timelineaEGFR32Tube() {
+        let chart = d3.timelines()
+          .tickFormat({format: d3.timeFormat("%I:%M %p"),
+            tickSize: 10})
+          .stack() // toggles graph stacking
+          .margin({left:120, right:30, top:0, bottom:0})
+          .mouseover(function (d, i, datum) {
+            var div = $('#hoverTube');
+            div.find('#infoTube').text(datum.times[i].info);
+          });
+        let svg = d3.select("#aegfr32tube").append("svg")
+          .attr("width",1000).datum(aEGFR32TubeData).call(chart);
+      }
+      function timelineaEGFR32Quad() {
+        let chart = d3.timelines()
+          .tickFormat({format: d3.timeFormat("%I:%M %p"),
+            tickSize: 10})
+          .stack() // toggles graph stacking
+          .margin({left:120, right:30, top:0, bottom:0})
+          .mouseover(function (d, i, datum) {
+            var div = $('#hoverQuad');
+            div.find('#infoQuad').text(datum.times[i].info);
+          });
+          ;
+        let svg = d3.select("#aegfr32quad").append("svg")
+          .attr("width",1000).datum(aEGFR32QuadData).call(chart);
+      }
+
+      timelineaEGFR32BC();
+      timelineaEGFR32Quad();
+      timelineaEGFR32Tube();
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <h3>aEGFR32 by Bar Code</h3>
+    <div id="aegfr32bc"></div>
+    <div id="hoverBc">
+      <div id="infoBc"></div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h3>aEGFR32 by Quadrant</h3>
+    <div id="aegfr32quad"></div>
+    <div id="hoverQuad">
+      <div id="infoQuad"></div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h3>aEGFR32 by Tube</h3>
+    <div id="aegfr32tube"></div>
+    <div id="hoverTube">
+      <div id="infoTube"></div>
+    </div>
+  </div>  
+</body>
+</html>

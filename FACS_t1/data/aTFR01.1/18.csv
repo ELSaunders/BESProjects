@@ -1,0 +1,48 @@
+Report Title,Sort Report
+User,Administrator
+Report Date,2018.04.04 at 13:56:04
+Device,scPCR Plate
+User ID,Administrator
+Cytometer,FACSAriaIII (R65828200065)
+Experiment,aTFR01 04April18
+Specimen,EXP
+Tube,Pool 2
+Sort Layout,aTFR01-1SC18
+Application,FACSDiva Version 8.0.1
+Sort Settings
+Sort Setup,70 micron,Precision ,Single Cell,
+Frequency,87.1,Yield Mask,0,
+Amplitude,12.4,Purity Mask,32,
+Phase,0.00,Phase Mask,16,
+Drop Delay,41.57,Single Cell,On,
+Attenuation,Off,Plates Voltage,"6,000",
+Sweet Spot,On,Voltage Centering,97,
+First Drop,261,Sheath Pressure,70.00,
+Target Gap,6,,,
+Side Stream Voltage (%)
+Far Left,Left,Right,Far Right,
+22.00,0.00,0.00,0.00,
+Neighboring Drop Charge (%)
+2nd,3rd,4th,
+19.00,8.00,3.00,
+Acquisition Counters 
+Threshold Count,442423,
+Processed Events Count(evt),925509,
+Electronic Aborts Count(evt),4482,
+Sort Elapsed Time(hh:mm:ss),00:02:13,
+Sort Counters
+ ,1,
+Sort Rate(evt/s) ,0,
+Conflicts Count(evt) ,NA,
+Conflicts Rate(evt/s),0,
+Efficiency(%),NA,
+Sort Layout
+ ,1,2,3,4,5,6,7,8,9,10,11,12,
+A,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1, ,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+B, ,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+C,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1, ,Q1 : 1 / 1,
+D,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+E,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1, ,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+F,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+G,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
+H,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,Q1 : 1 / 1,
