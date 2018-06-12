@@ -149,10 +149,10 @@ Object.keys(bcToFiles).forEach(function(bc) {
     let stime = Number(headersByFile[cfile]['startTime']);
     let quad = headersByFile[cfile]['quadrant'];
     let etime = stime + Number(headersByFile[cfile]['elapsedTime']);
-    let qcolor = quadColor[quad];
+    let tcolor = tubeColor[tube];
     let dfile = cfile.substr(0,cfile.length-4)
     let infopu = cfile + ": " + bc + '; ' + tube + '; ' + quad;
-    bcstr += '{"info": "' + infopu + '", "color":"' + qcolor + '", "label":"' +
+    bcstr += '{"info": "' + infopu + '", "color":"' + tcolor + '", "label":"' +
       dfile + '", "starting_time": ' + stime + ', "ending_time": ' + etime + '},'
   });
   bcstr += ']},\n';
@@ -190,11 +190,11 @@ Object.keys(tubeToFiles).forEach(function(tube) {
     let stime = Number(headersByFile[cfile]['startTime']);
     let quad = headersByFile[cfile]['quadrant'];
     let etime = stime + Number(headersByFile[cfile]['elapsedTime']);
-    let qcolor = quadColor[quad];
+    let tcolor = tubeColor[tube];
     let dfile = cfile.substr(0,cfile.length-4)
     let bc = headersByFile[cfile]["barcode"];
     let infopu = cfile + ": " + bc + '; ' + tube + '; ' + quad;
-    tubestr += '{"info": "' + infopu + '", "color":"' + qcolor + '", "label":"' +
+    tubestr += '{"info": "' + infopu + '", "color":"' + tcolor + '", "label":"' +
       dfile + '", "starting_time": ' + stime + ', "ending_time": ' + etime + '},\n'
   });
   tubestr += ']},\n';
