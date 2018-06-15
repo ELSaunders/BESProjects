@@ -5,15 +5,21 @@ containing information of interest. It also generates structured data
 in a specialized JSON format for use in the d3-timelines plugin.
 
 This code was developed with Node.js, but should run anywhere with a
-with few conversions. It looks for all the CSV files in a specified
+with few modifications. It looks for all the CSV files in a specified
 directory, but that could be changed for whatever file read mechanism
 is developed.
-*/
 
-/*
 d3 is required to get color palates that are used within d3 plugins, to
 maintain consistency. moment-timezone is for converting the instrument
 timestamp (which contains no timezone information) to a specific timestamp
+
+The command-line form of executing this code is:
+
+node [path to]readfacs.js [data directory] [file prefix] 
+
+If paths are set up to the readfacs.js command, then an absolute path is
+not necessary. The data directory is where the CSV files are located.
+The file prefix is a name preceding the data files that get generated.
 */
 
 fs = require('fs');
