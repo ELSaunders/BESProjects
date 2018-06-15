@@ -2,6 +2,12 @@
 
 ## File Structure
 
+In order for this to work, we need local copies of d3.v4.min.js, d3-timelines.js, and jquery-3.3.1.min.js. Unfortunately, moment-timezone was too complex to include as a
+simple .js file, so it was installed with NPM.
+
+* https://www.npmjs.com/package/d3-timelines
+* https://momentjs.com/timezone/
+
 There are two components to the FACS error checking routines that have been written:
 
 1. readafcs.js
@@ -15,6 +21,27 @@ in a JSON structure, which gets printed to a file. The data is cast to structure
 by the d3-timelines module, with bar code, sample/tube identification, and quadrant
 identification being the Y-axis values on 3 different timelines, and these structures
 are all printed to different files.
+
+The following mappings in the CSV files are transformed to a JSON-format data structure:
+
+* 'Report Date': 'startTime',
+* 'Experiment': 'experiment',
+* 'Tube': 'tube',
+* 'Sort Layout': 'barcode',
+* 'Sort Elapsed Time(hh:mm:ss)': 'elapsedTime'
+
+In addition, the name of the CSV file is stored as 'csvFile', and the Quadrant info
+(which should be consistent) is stored as 'quadrant'
+
+The program also creates three files that in a format that d3-timelines uses
+
+The program should be run from the file in which the created JSON files need to be.
+
+node [path to]readfacs.js [data directory] [file prefix] 
+
+If readafcs.js is findable in the path, then an absolute path to the executable is
+not required.
+
 
 ### facs_example.html
 
