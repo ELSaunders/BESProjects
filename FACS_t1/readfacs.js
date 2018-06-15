@@ -23,7 +23,7 @@ The file prefix is a name preceding the data files that get generated.
 */
 
 fs = require('fs');
-var d3 = require('d3');
+var d3 = require('./d3.v4.min.js');
 var moment = require('moment-timezone');
 moment().tz("America/Los_Angeles").format();
 
